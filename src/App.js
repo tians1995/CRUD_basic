@@ -3,8 +3,7 @@ import './App.css';
 import FormInput from "./components/FormInput"
 import TodoItem from "./components/TodoItem"
 import React from 'react';
-import EditModal from './components/EditModal';
-import DeleteModal from './components/DeleteModal';
+
 
 class App extends React.Component {
   state = {
@@ -21,9 +20,9 @@ class App extends React.Component {
 }
 
 deleteTask = id =>{
-  this.setState({
-    todos: this.state.todos.filter(item => item.id != id)
-  })
+  // this.setState({
+  //   todos: this.state.todos.filter(item => item.id != id)
+  // })
 }
 
 addTask = data =>{
@@ -68,8 +67,7 @@ closeModal = () =>{
    <div className="input-form">
     <FormInput add={this.addTask} />
    </div>
-   <DeleteModal  deleted={this.state.isEdit} close={this.closeModal}  />
-   <EditModal edit={this.state.isEdit} close={this.closeModal} />
+
     </div>
    )
 }
