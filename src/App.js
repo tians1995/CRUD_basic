@@ -7,7 +7,7 @@ import React from 'react';
 
 class App extends React.Component {
   state = {
-    todos:[{
+    todos: [{
       id: 1,
       title: "Reading a Book"
     },
@@ -15,62 +15,62 @@ class App extends React.Component {
       id: 2,
       title: "Workout Training"
     }
-  ],
-  isEdit:false
-}
-
-deleteTask = id =>{
-  // this.setState({
-  //   todos: this.state.todos.filter(item => item.id != id)
-  // })
-}
-
-addTask = data =>{
-  const id = this.state.todos.length
-  const newData = {
-    id: id + 1,
-    title: data 
+    ],
+    isEdit: false
   }
-  this.setState({
-    todos: [...this.state.todos, newData]
-  })
-}
-openModal = () =>{
-  this.setState({
-    isEdit:true
-  })
-}
-closeModal = () =>{
-  this.setState({
-    isEdit:false
-  })
-}
-  render(){
-    const { todos } = this.state;
-  return (
-    <div className="app">
-   <div className="logo">
-   <img src={logo} alt="logo" />
-   <h3> Task List</h3>
-   </div>
-   <div className="List">
-   {todos.map(item =>
-   <TodoItem 
-   key={item.id} 
-   todo={item} 
-   del={this.deleteTask}
-   close={this.closeModal}
-   open={this.openModal}
-   deleted={this.openModal}
-    />)}
-   </div>
-   <div className="input-form">
-    <FormInput add={this.addTask} />
-   </div>
 
-    </div>
-   )
-}
+  deleteTask = id => {
+    // this.setState({
+    //   todos: this.state.todos.filter(item => item.id != id)
+    // })
+  }
+
+  addTask = data => {
+    const id = this.state.todos.length
+    const newData = {
+      id: id + 1,
+      title: data
+    }
+    this.setState({
+      todos: [...this.state.todos, newData]
+    })
+  }
+  openModal = () => {
+    this.setState({
+      isEdit: true
+    })
+  }
+  closeModal = () => {
+    this.setState({
+      isEdit: false
+    })
+  }
+  render() {
+    const { todos } = this.state;
+    return (
+      <div className="app">
+        <div className="logo">
+          <img src={logo} alt="logo" />
+          <h3> Task List</h3>
+        </div>
+        <div className="List">
+          {todos.map(item =>
+            <TodoItem
+              key={item.id}
+              todo={item}
+              del={this.deleteTask}
+              close={this.closeModal}
+              open={this.openModal}
+              deleted={this.openModal}
+            />)}
+        </div>
+        <div className="input-form">
+          <FormInput add={this.addTask} />
+        </div>
+
+      </div>
+    )
+  }
 }
 
 
